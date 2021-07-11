@@ -81,7 +81,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <p>Copyright Ogunsemowo Ifeoluwa © 2020. All rights reserved.</p>
+                        <p>Copyright 2TIONWORLD © 2021. All rights reserved.</p>
                     </div>
                 </div>
             </div>

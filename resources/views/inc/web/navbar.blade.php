@@ -17,9 +17,10 @@
       </ul>
 
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+       <!-- <li class="nav-item active">
+          <a class="nav-link" href="/">Blogs <span class="sr-only">(current)</span></a>
         </li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Programmes
@@ -31,21 +32,21 @@
               <a class="dropdown-item" href="/front-end">Front-end Development</a>
               <a class="dropdown-item" href="/mobile">Mobile App Development</a>
               <a class="dropdown-item" href="/ui-ux">UX & Product Design</a>
-            </div> 
-    <!--  <div class="dropdown-divider"></div>
+            </div>  -->
+        <!--  <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Sessions</a> -->
-            
+        <!--    
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="/blog">Blogs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
+          <a class="nav-link" href="/about">Student</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog">Blog</a>
-        </li>
-      </ul>
+          <a class="nav-link" href="/contact">Tutor</a>
+        </li>      
+      </ul> 
       
       <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto">
