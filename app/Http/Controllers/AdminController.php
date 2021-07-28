@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 use App\Admin;
-use App\Gender;
+use App\Country;
 use App\Role;
 use App\User;
 use App\Course;
@@ -56,8 +56,8 @@ class AdminController extends Controller
     public function editSelfAdmin()
     {
         $admin = Auth::user();
-        $genders= Gender::all();
-        return view('admin.edit')->with('genders',$genders)->with('admin',$admin);
+        $countries= Country::all();
+        return view('admin.edit')->with('countries',$countries)->with('admin',$admin);
     }
 
     public function updateSelfAdmin(Request $request)
@@ -68,7 +68,7 @@ class AdminController extends Controller
             'lastname'=> 'nullable',
             'email'=> 'required',
             'password'=> 'nullable',
-            'gender'=> 'required',
+            'country'=> 'required',
             'profile_picture'=>'image|nullable|max:4999'
         ]);
 
@@ -89,7 +89,7 @@ class AdminController extends Controller
        $admin = Auth::user();
        $admin->firstname = $request['firstname'];
        $admin->lastname = $request['lastname'];
-       $admin->gender_id =$request['gender'];
+       $admin->country_id =$request['country'];
        $admin->email = $request['email'];
        #Save profile picture on database
        if($request->hasFile('profile_picture')){
@@ -144,8 +144,8 @@ class AdminController extends Controller
 
     public function createAdmin()
     {
-        $genders= Gender::all();
-        return view('admin.admins.new')->with('genders',$genders);
+        $countries= Country::all();
+        return view('admin.admins.new')->with('countries',$countries);
     }
 
     public function storeAdmin(Request $request)
@@ -156,13 +156,13 @@ class AdminController extends Controller
             'lastname'=> 'nullable',
             'email'=> 'required',
             'password'=> 'required',
-            'gender'=> 'required',
+            'country'=> 'required',
         ]);
 
        $admin= new Admin();
        $admin->firstname = $request['firstname'];
        $admin->lastname = $request['lastname'];
-       $admin->gender_id =$request['gender'];
+       $admin->country_id =$request['country'];
        $admin->email = $request['email'];
        $admin->password = \Hash::make($request['password']);
        $admin->role_id = 1;
@@ -182,8 +182,8 @@ class AdminController extends Controller
     public function editAdmin($id)
     {
         $admin = Admin::find($id);
-        $genders= Gender::all();
-        return view('admin.admins.edit')->with('genders',$genders)->with('admin',$admin);
+        $countries= Country::all();
+        return view('admin.admins.edit')->with('countries',$countries)->with('admin',$admin);
     }
 
     public function updateAdmin(Request $request, $id)
@@ -194,13 +194,13 @@ class AdminController extends Controller
             'lastname'=> 'nullable',
             'email'=> 'required',
             'password'=> 'nullable',
-            'gender'=> 'required',
+            'country'=> 'required',
         ]);
 
        $admin= Admin::find($id);
        $admin->firstname = $request['firstname'];
        $admin->lastname = $request['lastname'];
-       $admin->gender_id =$request['gender'];
+       $admin->country_id =$request['country'];
        $admin->email = $request['email'];
        $admin->role_id = 1;
        $admin->save();
@@ -233,9 +233,9 @@ class AdminController extends Controller
 
     public function createTutor()
     {
-        $genders= Gender::all();
+        $countries= Country::all();
         $courses = Course::all();
-        return view('admin.tutors.new')->with('genders',$genders)->with('courses', $courses);
+        return view('admin.tutors.new')->with('countries',$countries)->with('courses', $courses);
     }
 
     public function storeTutor(Request $request)
@@ -246,13 +246,13 @@ class AdminController extends Controller
             'lastname'=> 'nullable',
             'email'=> 'required',
             'password'=> 'required',
-            'gender'=> 'required',
+            'country'=> 'required',
         ]);
 
        $user= new User();
        $user->firstname = $request['firstname'];
        $user->lastname = $request['lastname'];
-       $user->gender_id =$request['gender'];
+       $user->country_id =$request['country'];
        $user->email = $request['email'];
        $user->password = \Hash::make($request['password']);
        $user->save();
@@ -286,9 +286,9 @@ class AdminController extends Controller
     {
         //
         $tutor = User::find($id);
-        $genders= Gender::all();
+        $countries= Country::all();
         $courses = Course::all();
-        return view('admin.tutors.edit')->with('tutor',$tutor)->with('courses', $courses)->with('genders',$genders);
+        return view('admin.tutors.edit')->with('tutor',$tutor)->with('courses', $courses)->with('countries',$countries);
     }
 
 
@@ -299,12 +299,12 @@ class AdminController extends Controller
             'lastname'=> 'nullable',
             'email'=> 'required',
             'password'=> 'nullable',
-            'gender'=> 'required',
+            'country'=> 'required',
     ]);
     $user = User::find($id);
     $user->firstname = $request['firstname'];
     $user->lastname = $request['lastname'];
-    $user->gender_id =$request['gender'];
+    $user->country_id =$request['country'];
     $user->email = $request['email'];
     $user->save();
 

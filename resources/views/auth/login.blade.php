@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="form-group form-group-feedback form-group-feedback-left">
-                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}"  placeholder="Username" required autocomplete="email" autofocus>
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}"  placeholder="Username" required autocomplete="username" autofocus>
                                 <div class="form-control-feedback">
                                     <i class="icon-user text-muted"></i>
                                 </div>

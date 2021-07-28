@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Assignment;
+use App\Lesson;
 use App\Course;
 use App\Submission;
 use Illuminate\Support\Facades\Storage;

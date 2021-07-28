@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Assignment;
+use App\Lesson;
 use App\Course;
 use App\Submission;
 
-class AssignmentsController extends Controller
+class LessonsController extends Controller
 {
 
     public function __construct()
@@ -22,7 +22,8 @@ class AssignmentsController extends Controller
     public function createAssignmentTut()
     {
         $user = Auth()->user();
-        $courses = $user->course()->get();
+        //$courses = $user->course()->get();
+        $courses = Course::all();
         return view('tutor.assignments.create')->with('courses', $courses);
     }
 
@@ -31,13 +32,15 @@ class AssignmentsController extends Controller
         $this->validate($request,[
             'title'=> 'required',
             'body'=> 'required',
-            'course'=>'required'
+            'course'=>'required',
+            'video_url'=>'required'
         ]);
 
-        $assignment = new Assignment();
+        $assignment = new Lesson();
         $assignment->title = $request['title'];
         $assignment->body = $request['body'];
         $assignment->course_id = $request['course'];
+        $assignment->video_url = $request['video_url'];
         $assignment->user_id = Auth()->user()->id;
         $assignment->save();
         return redirect('/dashboard')->with('success', 'Assigment created successfully');

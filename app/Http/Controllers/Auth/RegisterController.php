@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\User;
-use App\Gender;
+use App\Country;
 use App\Program;
 use App\Address;
 
@@ -73,7 +73,7 @@ class RegisterController extends Controller
     {
         
         return User::create([
-            'firstname' => $data['firstname'],
+            'full_name' => $data['full_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
@@ -82,25 +82,17 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         $programs = Program::all();
-        $genders= Gender::all();
+        $countries= Country::all();
         // $address = Address::all();
-        return view('auth.register')->with('genders', $genders)->with('programs', $programs);
+        return view('auth.register')->with('countries', $countries)->with('programs', $programs);
     }
 
     public function storeRegistrationForm(Request $request)
     {
         $this->validate($request, 
         [
-            'firstname'=> 'required',
-            'middlename'=> 'nullable',
-            'lastname'=> 'required',
-            'gender'=> 'required',
-            'age'=> 'nullable',
-            'nationality'=> 'nullable',
-            'state'=> 'nullable',
-            'address'=> 'nullable',
-            'phone_number'=> 'required',
-            'program'=> 'required',
+            'username'=> 'required',
+            'first_name'=> 'required',
             'email'=> 'required',
             'password'=> 'required',
         ]);
@@ -112,22 +104,17 @@ class RegisterController extends Controller
 
 
         $user= new User();
-        $user->firstname = $request['firstname'];
-        $user->middlename = $request['middlename'];
-        $user->lastname = $request['lastname'];
-        $user->gender_id =$request['gender'];
-        $user->age = $request['age'];
-        $user->nationality = $request['nationality'];
-        $user->state = $request['state'];
-        $user->address = $request['address'];
-        $user->phone_number = $request['phone_number'];
+        $user->username = $request['username'];
+        $user->first_name = $request['first_name'];
+        $user->last_name = $request['last_name'];
+        $user->full_name = $request['first_name']." ".$request['last_name'];
         $user->email = $request['email'];
         $user->password = \Hash::make($request['password']);
         $user->save();
         
         #Attach Program to User
-        $program = $request['program'];
-        $user->program()->attach($program);
+        //$program = $request['program'];
+        $user->program()->attach(1);
 
         $UserProgram = $user->program()->first();
         $userCourses[] = $UserProgram->course()->get();

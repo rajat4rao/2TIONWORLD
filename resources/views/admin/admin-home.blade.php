@@ -21,7 +21,7 @@
                 <br>
                     <br> <h5> <b>Firstname </b><br> {{$admin->firstname}}    </h5>
                     <br> <h5> <b>Lastname </b> <br> {{$admin->lastname}}   </h5>
-                    <br> <h5> <b>Gender </b> <br>  {{$admin->gender->name}}   </h5>
+                    <br> <h5> <b>country </b> <br>  {{$admin->country->name}}   </h5>
                     <br> <h5><b> Email  </b> <br> {{$admin->email}}  </h5>
                     <br> <h5><b> Role  </b> <br> Admin  </h5>
                     <br> <h5><b> Status </b> <br> {{$admin->suspension->name}} </h5>    
@@ -29,7 +29,7 @@
             </div>
         <div>
 
-            {{-- {{$admin->gender->name}}
+            {{-- {{$admin->country->name}}
             {{$admin->suspension->name}}  --}}
 
             

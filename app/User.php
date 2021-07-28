@@ -18,7 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'username',
     ];
 
     /**
@@ -39,10 +39,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    #Linking User to Gender in many to one
-    public function gender()
+    #Linking User to COuntry in many to one
+    public function country()
     {
-      return $this->belongsTo('App\Gender');  
+      return $this->belongsTo('App\Country');  
     }
 
     public function program()
@@ -64,7 +64,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function assignment()
     {
-        return $this->hasMany('App\Assignment');
+        return $this->hasMany('App\Lesson');
     }
 
     public function submission()

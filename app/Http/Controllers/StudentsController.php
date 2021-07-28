@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 
 use App\Course;
@@ -16,6 +17,7 @@ use App\User;
 use App\Program;
 use App\Payment_status;
 use App\Payment;
+use App\Country;
 
 
 
@@ -57,13 +59,28 @@ class StudentsController extends Controller
 
             // Handle file upload
             if($request->hasFile('profile_picture')){
-                $fileNameWithExt = $request->file('profile_picture')->getClientOriginalName();
-                $filename = pathInfo($fileNameWithExt, PATHINFO_FILENAME);
-                $extension = $request->file('profile_picture')->getClientOriginalExtension();
-                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-                $filePath = 'images/profile_pictures/'. $fileNameToStore;
-                $path = Storage::disk('s3')->put($filePath , fopen($request->file('profile_picture'), 'r+'), 'public');
-                $url = url('https://findworkaacad.s3.amazonaws.com/'.$filePath);
+                // $fileNameWithExt = $request->file('profile_picture')->getClientOriginalName();
+                // $filename = pathInfo($fileNameWithExt, PATHINFO_FILENAME);
+                // $extension = $request->file('profile_picture')->getClientOriginalExtension();
+                // $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+                // $filePath = 'images/profile_pictures/'. $fileNameToStore;
+                // $path = Storage::disk('local')->put($filePath , fopen($request->file('profile_picture'), 'r+'), 'public');
+                // $url = url('/').'/storage/apps/'.$filePath;
+
+
+                $imagePath = $request['profile_picture']->store('uploads', 'public');
+
+                $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+                $image->save();
+
+                $url = $imagePath;
+                
+
+                // $url  = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
+                // $url  .= 'images/profile_pictures/'. $fileNameToStore;
+                //$url =  url('https://findworkaacad.s3.amazonaws.com/'.$filePath);
+                //$path = Storage::disk('s3')->put($filePath , fopen($request->file('profile_picture'), 'r+'), 'public');
+                //$url = url('https://findworkaacad.s3.amazonaws.com/'.$filePath);
             }
     
             #Save profile picture on database
@@ -99,6 +116,57 @@ class StudentsController extends Controller
         // if($user->password != $password ){
         
 
+    }
+
+    public function editProfile()
+    {
+        if(Auth::user()->suspension->id == 1){
+            $roles=Auth::user()->roles()->get();
+            foreach($roles as $role){
+                if($role->id == 3){
+                    $student = Auth::user();
+                    $countries= Country::all();
+                    return view('student.editprofile')->with('countries', $countries)->with('student',$student);
+                }
+                elseif($role->id==2){
+                    $tutor = Auth::user();
+                    $tCourses = $tutor->course()->get();
+                    return view('tutor.dashboard')->with('tutor',$tutor)->with('tCourses',$tCourses);
+                }
+                else{
+                    return redirect('/');
+                }
+            }
+        }else{
+            return view('user-suspended')->with('success', 'Account Suspended');
+        }
+
+    }
+
+    public function saveProfile(Request $request) {
+        $this->validate($request, 
+        [
+            'first_name'=> 'required',
+            'country'=> 'required',
+            'age'=> 'nullable',
+            'state'=> 'nullable',
+            'address_line_1'=> 'nullable',
+            'address_line_2'=> 'nullable',
+            'phone_number'=> 'required',
+        ]);
+
+
+        $user = Auth()->user();
+        $user->first_name = $request['first_name'];
+        $user->last_name = $request['last_name'];
+        $user->full_name = $request['first_name'].$request['last_name'];
+        $user->country_id =$request['country'];
+        $user->state = $request['state'];
+        $user->address_line_1 = $request['address_line_1'];
+        $user->address_line_2 = $request['address_line_2'];
+        $user->phone_number = $request['phone_number'];
+        $user->save();
+        return redirect('/dashboard')->with('success', 'You have successfuly updated the profile');
     }
 
 }

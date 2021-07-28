@@ -30,6 +30,6 @@ class Course extends Model
 
     public function assignment()
     {
-        return $this->hasMany('App\Assignment');
+        return $this->hasMany('App\Lesson');
     }
 }

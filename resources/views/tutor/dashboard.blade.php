@@ -48,7 +48,7 @@
                     <br>
                         <br> <h5> <b>Firstname </b><br> {{$tutor->firstname}}    </h5>
                         <br> <h5> <b>Lastname </b> <br> {{$tutor->lastname}}   </h5>
-                        <br> <h5> <b>Gender </b> <br> {{$tutor->gender->name}}    </h5>
+                        <br> <h5> <b>country </b> <br> {{$tutor->country->name}}    </h5>
                         <br> <h5><b> Email  </b> <br> {{$tutor->email}}  </h5>
                         <br> <h5><b> Role  </b> <br> Tutor  </h5>
                         <br> <h5><b> Status : </b> &nbsp {{$tutor->suspension->name}}  </h5>

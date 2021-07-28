@@ -18,7 +18,7 @@
         <br>
             <br> <h4> Firstname: {{$admin->firstname}}    </h4>
             <br> <h4> Lastname: {{$admin->lastname}}   </h4>
-            <br> <h4> Gender:   {{$admin->gender->name}}    </h4>
+            <br> <h4> country:   {{$admin->country->name}}    </h4>
             <br> <h4> Email:    {{$admin->email}}  </h4>
             <br> <h4> Status : &nbsp {{$admin->suspension->name}}  </h5>
             <br> <h4> Date created: {{$admin->created_at}} </h4>

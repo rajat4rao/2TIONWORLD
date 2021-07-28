@@ -25,6 +25,8 @@ Route::post('/upload', 'ImagesController@store')->name('uploadfile');
 // Auth::routes(); Verify is false instead of true so as to stop verify
 Auth::routes(['verify' => false]);
 
+
+Route::post('/search-tut', 'SearchController@saveProfile');
     #STUDENTS
 Route::post('/dashboard', 'Auth\RegisterController@storeRegistrationForm');
 
@@ -38,6 +40,10 @@ Route::get('/user-suspended', 'DashboardController@Suspended');
 Route::get('/stu-programs', 'StudentsController@indexStudentProgram');
 
 Route::get('/stu-courses', 'StudentsController@indexStudentCourse');
+
+Route::get('/profile', 'StudentsController@editProfile');
+
+Route::post('/profile', 'StudentsController@saveProfile');
 
 Route::post('/profile-picture', 'StudentsController@storeProfilePicture');
 
@@ -64,9 +70,14 @@ Route::get('/sub-courses/{id}/scores', 'SubmissionsController@submissionScores')
     #TUTORS 
 // Route::get('/tut-dashboard', 'TutorsDashboardController@getDashboard');
 
+Route::get('/tut-profile', 'TutorsDashboardController@editProfile');
+
+Route::post('/tut-profile', 'TutorsDashboardController@saveProfile');
+
 Route::get('/dashboard/courses', 'TutorsDashboardController@indexCourse');
 
 Route::get('/dashboard/tut-courses', 'TutorsDashboardController@indexTutCourse');
+Route::post('/dashboard/tut-courses', 'TutorsDashboardController@storeCourse');
 
 // Route::get('/dashboard/tut-students', 'TutorsDashboardController@indexTutStudent');
 
@@ -82,25 +93,25 @@ Route::post('/dashboard/update-password', 'TutorsDashboardController@updateTutor
 
 
     #Assignment management by Tutor
-Route::get('/new-assignment', 'AssignmentsController@createAssignmentTut');
+Route::get('/new-assignment', 'LessonsController@createAssignmentTut');
 
-Route::post('/tut-ass', 'AssignmentsController@storeAssignmentTut');
+Route::post('/tut-ass', 'LessonsController@storeAssignmentTut');
 
-Route::get('/ass-courses', 'AssignmentsController@assignmentCourseTut');
+Route::get('/ass-courses', 'LessonsController@assignmentCourseTut');
 
-Route::get('/ass-courses/{id}/ass-list', 'AssignmentsController@showCourseAssTut');
+Route::get('/ass-courses/{id}/ass-list', 'LessonsController@showCourseAssTut');
 
-Route::get('/ass-courses/{course_id}/{ass_id}/edit', 'AssignmentsController@editAssignmentTut');
+Route::get('/ass-courses/{course_id}/{ass_id}/edit', 'LessonsController@editAssignmentTut');
 
-Route::put('/tut-ass/{course_id}/{id}/update/', 'AssignmentsController@updateAssignmentTut');
+Route::put('/tut-ass/{course_id}/{id}/update/', 'LessonsController@updateAssignmentTut');
 
-Route::get('/ass-courses/{tutCourse_id}/ass/{ass_id}/submissions', 'AssignmentsController@getSubmissionsTut');
+Route::get('/ass-courses/{tutCourse_id}/ass/{ass_id}/submissions', 'LessonsController@getSubmissionsTut');
 
-Route::get('/ass-courses/{tutCourse_id}/ass/{ass_id}/{sub_id}/submission', 'AssignmentsController@editSubmissionGrade');
+Route::get('/ass-courses/{tutCourse_id}/ass/{ass_id}/{sub_id}/submission', 'LessonsController@editSubmissionGrade');
 
-Route::get('/submission/{id}/graded', 'AssignmentsController@updateSubmissionGrade');
+Route::get('/submission/{id}/graded', 'LessonsController@updateSubmissionGrade');
 
-Route::get('/ass-courses/{tutCourse_id}/{ass_id}/scores', 'AssignmentsController@SubmissionScoresTut');
+Route::get('/ass-courses/{tutCourse_id}/{ass_id}/scores', 'LessonsController@SubmissionScoresTut');
 
 
 

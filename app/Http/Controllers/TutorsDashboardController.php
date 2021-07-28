@@ -12,6 +12,8 @@ use App\User;
 use App\Role;
 use App\Course;
 use App\Program;
+use App\Country;
+
 
 class TutorsDashboardController extends Controller
 {
@@ -230,6 +232,85 @@ class TutorsDashboardController extends Controller
         // if($user->password != $password ){
         
 
+    }
+
+
+    public function editProfile()
+    {
+        if(Auth::user()->suspension->id == 1){
+            $roles=Auth::user()->roles()->get();
+            foreach($roles as $role){
+                if($role->id == 3){
+                    $student = Auth::user();
+                    $countries= Country::all();
+                    return view('student.editprofile')->with('countries', $countries)->with('student',$student);
+                }
+                elseif($role->id==2){
+                    $tutor = Auth::user();
+                    $tCourses = $tutor->course()->get();
+                    $countries= Country::all();
+                    return view('tutor.editprofile')->with('countries', $countries)->with('tutor',$tutor)->with('tCourses',$tCourses);
+                }
+                else{
+                    return redirect('/');
+                }
+            }
+        }else{
+            return view('user-suspended')->with('success', 'Account Suspended');
+        }
+
+    }
+
+    public function saveProfile(Request $request) {
+        $this->validate($request, 
+        [
+            'first_name'=> 'required',
+            'country'=> 'required',
+            'age'=> 'nullable',
+            'state'=> 'nullable',
+            'address_line_1'=> 'nullable',
+            'address_line_2'=> 'nullable',
+            'phone_number'=> 'required',
+            'position' => 'required',
+        ]);
+
+
+        $user = Auth()->user();
+        $user->first_name = $request['first_name'];
+        $user->last_name = $request['last_name'];
+        $user->full_name = $request['first_name'].$request['last_name'];
+        $user->country_id =$request['country'];
+        $user->state = $request['state'];
+        $user->address_line_1 = $request['address_line_1'];
+        $user->address_line_2 = $request['address_line_2'];
+        $user->phone_number = $request['phone_number'];
+        $user->position = $request['position'];
+        $user->save();
+        return redirect('/dashboard')->with('success', 'You have successfuly updated the profile');
+    }
+
+
+
+    public function storeCourse(Request $request)
+    {
+        $this->validate($request, 
+        [
+            'name'=> 'required',
+            'description'=> 'nullable',
+        ]);
+
+        $course= new Course();
+        $course->name = $request['name'];
+        $course->description = $request['description'];
+        $course->save();
+
+        $program = $request['program'];
+        $course->program()->attach(1);
+
+        $user = Auth()->user();
+        $user->course()->attach($course);
+        
+        return redirect('dashboard/tut-courses')->with('success', 'Course has been created successfully');
     }
  
 

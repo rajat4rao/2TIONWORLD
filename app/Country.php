@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Gender extends Model
+class Country extends Model
 {
     #Linking User to Gender in one to many
      public function user()

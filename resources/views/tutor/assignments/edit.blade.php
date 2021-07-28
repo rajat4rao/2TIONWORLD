@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
-    {{ Form::open(array('action' => ['AssignmentsController@updateAssignmentTut', $course->id, $assignment->id], 'method'=>'PUT', 'enctype'=>'multipart/form-data')) }}
+    {{ Form::open(array('action' => ['LessonsController@updateAssignmentTut', $course->id, $assignment->id], 'method'=>'PUT', 'enctype'=>'multipart/form-data')) }}
         @csrf
         <div class="container">
             <div>

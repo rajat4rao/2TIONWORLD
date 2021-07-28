@@ -67,22 +67,13 @@
                             </div>
                             <div class="navi">
                                 <ul>
-                                    <li class="active"><a href="/dashboard"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
+                                    <li class="active"><a href="/tut-profile"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
                                     <li><a href="#"><i class="fa-book" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Courses<i class="fa fa-caret-down"></i></span></a>
                                         <ol style= "margin-left: 15px">
-                                            <li class= "move"><a href="/dashboard/tut-courses"> ◘ View my courses </a></li>
-                                            <li class="move"><a href="/dashboard/courses"> ◘ View all courses</a></li>
+                                            <li class= "move"><a href="/dashboard/tut-courses"> ◘ Create/View my courses </a></li>
+                                            <li class="move"><a href="/dashboard/courses"> ◘ Assign/View all courses</a></li>
                                         </ol>
                                     </li>
-                                    <li><a href="/dashboard/tut-stu-crs"><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Students</span></a></li>
-                                    <li><a href="#"><i class="fa fa-tasks " aria-hidden="true"></i><span class="hidden-xs hidden-sm" >Assignment <i class="fa fa-caret-down"></i></span></a> 
-                                        <ol style= "margin-left: 15px">
-                                            <li class= "move"><a href="/new-assignment">  ◘ Create Assignments </a></li>
-                                            <li class="move"><a href="/ass-courses"> ◘ View and Grade Assignment </a></li>
-                                        </ol>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Timetable</span></a></li>
-                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a></li>
                                 </ul>
                             </div>
                         </div>

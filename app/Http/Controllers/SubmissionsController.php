@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\User;
-use App\Assignment;
+use App\Lesson;
 use App\Course;
 use App\Submission;
 use App\Payment_status;

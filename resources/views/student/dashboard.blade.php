@@ -53,7 +53,7 @@
                         <br> <h5> <b>Firstname </b><br> {{$student->firstname}}    </h5>
                         <br> <h5> <b>Middlename </b> <br> {{$student->middlename}}   </h5>
                         <br> <h5> <b>Lastname </b> <br> {{$student->lastname}}   </h5>
-                        <br> <h5> <b>Gender </b> <br> {{$student->gender->name}}    </h5>
+                        <br> <h5> <b>country </b> <br> {{$student->country->name}}    </h5>
                         <br> <h5> <b>Age </b> <br> {{$student->age}}   </h5>
                         <br> <h5> <b>Nationality </b> <br> {{$student->nationality}}   </h5>
                         <br> <h5> <b>State </b> <br> {{$student->state}}   </h5>

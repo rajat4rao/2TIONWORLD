@@ -28,11 +28,11 @@
                 {{Form::text('lastname',$admin->lastname, ['class'=>'form-control', 'placeholder'=>'Last Name'])}}
             </div>
 
-            <b>Gender</b>
+            <b>country</b>
             <div class="form-check form-check-inline shift">
-                @foreach ($genders as $gender)
-                    <label for="gender" class="hey">{{$gender->name}}</label> &nbsp
-                    <input id="gender" class="hey" type="radio" name="gender" value="{{$gender->id}}">
+                @foreach ($countries as $country)
+                    <label for="country" class="hey">{{$country->name}}</label> &nbsp
+                    <input id="country" class="hey" type="radio" name="country" value="{{$country->id}}">
                     &nbsp &nbsp &nbsp &nbsp &nbsp
                 @endforeach
             </div>

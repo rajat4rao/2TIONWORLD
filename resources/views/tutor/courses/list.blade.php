@@ -14,7 +14,6 @@
             <tr>
                 <th scope="col">S/N</th>
                 <th scope="col">Name</th>
-                <th scope="col">Program</th>
                 <th scope="col">Description</th>
             </tr>
         </thead>
@@ -24,7 +23,6 @@
             <tr >
                 <td style="width: 10%">{{$c++}}</td>
                 <td style="width: 25%">{{$course->name}}</td>
-                <td style="width: 25%"> {{$course->program()->first()->name}}</td>
                 <td style="width: 40%">{{$course->description}}</td>
             </tr>
             @endforeach

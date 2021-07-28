@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Assignment extends Model
+class Lesson extends Model
 {
     public function course()
     {

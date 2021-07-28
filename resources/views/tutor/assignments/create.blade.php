@@ -17,6 +17,10 @@
                 <label for="title"><b>Title</b></label>
                 <input id="title" class="form-control" type="text" name="title" placeholder="Assignment Title">
                 <br>
+
+                <label for="video_url"><b>Video URL</b></label>
+                <input id="video_url" class="form-control" type="text" name="video_url" placeholder="Video URL">
+                <br>
                 
                 <label for="body"><b>Body</b></label>
                 <textarea id="body" class="form-control" type="textarea" name="body" placeholder="Assignment body"></textarea>

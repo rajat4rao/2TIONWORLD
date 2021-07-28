@@ -18,7 +18,7 @@
         <br>
             <br> <h4> Firstname: {{$tutor->firstname}}    </h4>
             <br> <h4> Lastname: {{$tutor->lastname}}   </h4>
-            <br> <h4> Gender:   {{$tutor->gender->name}}    </h4>
+            <br> <h4> country:   {{$tutor->country->name}}    </h4>
             <br> <h4> Email:    {{$tutor->email}}  </h4>
             <br> <h4> Status : &nbsp {{$tutor->suspension->name}}  </h5>
             <br> <h4>Assigned Courses: 

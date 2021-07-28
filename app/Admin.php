@@ -36,9 +36,9 @@ class Admin extends Authenticatable
       return $this->belongsTo('App\Suspension');  
     }
 
-    public function gender()
+    public function country()
     {
-      return $this->belongsTo('App\Gender');  
+      return $this->belongsTo('App\Country');  
     }
 
     public function role()

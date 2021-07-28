@@ -119,7 +119,7 @@
                         </ul> -->
 
                         <div class="card-body">
-                            <form method="POST" action="{{ action('Auth\RegisterController@storeRegistrationForm') }}">
+                            <form method="POST" action="{{ action('SearchController@saveProfile') }}">
                                 @csrf
 
                                 <div class="form-group row">

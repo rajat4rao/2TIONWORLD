@@ -13,12 +13,13 @@ class CreateAssignmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('assignments', function (Blueprint $table) {
+        Schema::create('lessons', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('course_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->string('title')->nullable();
             $table->mediumText('body')->nullable();
+            $table->mediumText('video_url')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateAssignmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assignments');
+        Schema::dropIfExists('lessons');
     }
 }
