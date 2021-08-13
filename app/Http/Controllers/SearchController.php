@@ -43,10 +43,9 @@ class SearchController extends Controller
 
 
         $user = new User(); 
-
         $users = $user->whereIn('id',$user_ids)->paginate(2);
-
         $user_details = array();
+
         $i = 0;
         foreach($users as $u) {
             $user_details[$i]['profile_picture'] = $u->profile_picture;
@@ -55,10 +54,7 @@ class SearchController extends Controller
             $user_details[$i]['phone_number'] = $u->phone_number;
             $i++;
         }
-
-        dd($user_details);
-
-        return view('student.searach')->with('users', $user_details);
+        return view('student.search')->with('users', $user_details);
 
     }
 }
