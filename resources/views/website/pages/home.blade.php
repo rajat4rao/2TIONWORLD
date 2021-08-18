@@ -3,7 +3,7 @@
     <head>
 
 
-        <link rel="stylesheet" href="css/etrain/style.css">    
+        <link rel="stylesheet" href="{{ url('/public/css/etrain/style.css') }}">    
 
         
         
@@ -16,9 +16,12 @@
 
 
     </head>
+    
+    
+    
 @section('content')
     {{-- @include('inc.web.carousel') --}}
-        @include('inc.web.carousel2')
+    {{--    @include('inc.web.carousel2') --}}
     {{-- @include('inc.web.carousel3') --}}
 
 
@@ -48,7 +51,6 @@
     <!--::blog_part end::-->
 
 
-    <br> <br> <br> <br> <br> <br> <br>
 
     <!-- TESTIMONIAL START -->
 
@@ -97,12 +99,12 @@
     <hr> --}}
 
     <!-- about us part start-->
-    <section class="learning_part">
+    <section class="learning_part" style="padding: 140px 0px 0px;">
         <div class="container">
             <div class="row align-items-sm-center align-items-lg-stretch">
                 <div class="col-md-7 col-lg-7">
                     <div class="learning_img">
-                        <img src="/image/images/learning.png" alt="">
+                        <img src="{{ url('/public/image/images/learning.png') }}" alt="">
                     </div>
                 </div>
                 <div class="col-md-5 col-lg-5">
@@ -124,7 +126,7 @@
 
                                 <div class="form-group row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <input id="keywords" type="text" class="form-control @error('keywords') is-invalid @enderror" name="keywords"  placeholder="Keywords" required autofocus>
 
                                         @error('keywords')
@@ -137,7 +139,7 @@
 
                                 <div class="form-group row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <input id="location" type="text" class="form-control @error('location') is-invalid @enderror" name="location" placeholder="Location" value="{{ old('location') }}"  autofocus>
 
                                         @error('location')
@@ -148,8 +150,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn_1">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn_1" style="padding: 10px 30px;border-radius: 5px;">
                                             {{ __('Find Tutor') }}
                                         </button>
                                     </div>
@@ -177,7 +179,7 @@
                         <p>Findworka Academy is the best online and offline IT institution
                             that can and will propell you to that big stage you've been 
                         dreaming about in the IT industry </p>
-                        <a href="/about#features" class="btn_1">Know More</a>
+                        <a href="/about#features" class="btn_1" style="padding: 10px 30px;border-radius: 5px;">Know More</a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
@@ -198,7 +200,7 @@
                             <h4 style="color:#0B0A49 ">Active Students</h4>
                             <h6>100+</h6>
                             <p>Our offline classes are held at our conference hall in our company
-                                with full cpomfortability for our students</p>
+                                with full comfortability.</p>
                         </div>
                     </div>
                 </div>

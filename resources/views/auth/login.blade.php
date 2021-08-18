@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid" style="background: #f5f5f5;">
     <!-- <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -78,16 +78,16 @@
         <div class="content-wrapper">
 
             <!-- Content area -->
-            <div class="content d-flex justify-content-center align-items-center">
+            <div class="content d-flex justify-content-center align-items-center" style="padding: 50px 0px;">
 
                 <!-- Login form -->
-                 <form method="POST" action="{{ route('login') }}">
+                 <form method="POST" action="{{ route('login') }}" class="login-form">
                         @csrf
                 <!-- <form class="login-form" > -->
                     <div class="card mb-0">
                         <div class="card-body">
                             <div class="text-center mb-3">
-                                <i class="icon-user icon-2x text-slate-300 border-slate-300 border-3 rounded-round p-3 mb-3 mt-1"></i>
+                                <i class="fa fa-user" style="border: 2px solid #90a4ae;border-radius: 50px;padding: 13px 19px;font-size: 30px;color: #90a4ae;margin-bottom: 10px;"></i>
                                 <h5 class="mb-0">Login as Student</h5>
                                 <span class="d-block text-muted">Your credentials</span>
                             </div>
@@ -131,7 +131,7 @@
 
                             <div class="form-group">
                                 <a href="dashboard.html">
-                                    <button type="submit" class="btn btn-primary btn-block">
+                                    <button type="submit" class="btn btn-primary btn-block" style="background: #1264AF;">
                                         Sign in 
                                         <i class="icon-circle-right2 ml-2"></i>
                                     </button>
@@ -143,9 +143,15 @@
                             </div>
 
                             <div class="form-group text-center">
-                                <button type="button" class="btn btn-outline bg-pink-300 border-pink-300 text-pink-300 btn-icon rounded-round border-2"><i class="icon-google"></i></button>
-                                <button type="button" class="btn btn-outline bg-indigo border-indigo text-indigo btn-icon rounded-round border-2 ml-2"><i class="icon-facebook"></i></button>
-                                <button type="button" class="btn btn-outline bg-slate-600 border-slate-600 text-slate-600 btn-icon rounded-round border-2 ml-2"><i class="icon-envelope"></i></button>
+                                <button type="button" class="btn btn-outline bg-pink-300 border-pink-300 text-pink-300 btn-icon rounded-round border-2">
+                                    <i class="fa fa-google" style="color: #1264AF;"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline bg-indigo border-indigo text-indigo btn-icon rounded-round border-2 ml-2">
+                                    <i class="fa fa-facebook" style="color: #1264AF;"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline bg-slate-600 border-slate-600 text-slate-600 btn-icon rounded-round border-2 ml-2">
+                                    <i class="fa fa-envelope" style="color: #1264AF;"></i>
+                                </button>
                             </div>
 
                             <div class="form-group text-center text-muted content-divider">
@@ -153,7 +159,7 @@
                             </div>
 
                             <div class="form-group">
-                                <a href="registration.html" class="btn btn-light btn-block">Sign up</a>
+                                <a href="registration.html" class="btn btn-light btn-block" style="border: 2px solid #1264AF;background: #fff;">Sign up</a>
                             </div>
 
                             <span class="form-text text-center text-muted">By continuing, you're confirming that you've read our <a href="#">Terms &amp; Conditions</a> and <a href="#">Cookie Policy</a></span>

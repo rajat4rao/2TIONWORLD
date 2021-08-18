@@ -1,7 +1,41 @@
-<nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color: navy" >
+<style>
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #eaeaea;
+}
+@media screen and (min-width: 576px) 
+{
+.login-form {
+    width: 30rem;
+}
+}
+
+@media only screen and (max-device-width: 575px) {
+.login-form {
+    width: 100%;
+}  
+}  
+
+.form-control:focus {
+    border-color: #1264AF;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 0%);
+}
+ 
+
+
+</style>
+
+<link href="{{ url('/public/css/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color: #1D2545" >
   <div class="container">
     <a class="navbar-brand" href="/">
-      <img src="/image/images/findworka-logo1.png" width="120" height="30"  alt="Findworka academy logo">
+    
+        <h3 style="color: #e4e4e4;margin-bottom: 0px;">2tionworld</h3>    
+        
+      <!-- <img src="../dev/public/image/images/findworka-logo1.png" width="120" height="30"  alt="Findworka academy logo"> -->
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -10,7 +44,7 @@
 
 
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: navy; padding-left:15px">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #1D2545; padding-left:15px">
       <!-- Left Side Of Navbar -->
       <ul class="navbar-nav mr-auto">
 
@@ -37,6 +71,7 @@
             <a class="dropdown-item" href="#">Sessions</a> -->
         <!--    
         </li> -->
+        <!--
         <li class="nav-item">
           <a class="nav-link" href="/blog">Blogs</a>
         </li>
@@ -45,12 +80,22 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contact">Tutor</a>
-        </li>      
+        </li> 
+        -->
       </ul> 
       
       <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto">
           <!-- Authentication Links -->
+                <li class="nav-item">
+                  <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/student">Student</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/tutor">Tutor</a>
+                </li> 
           @guest
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -82,6 +127,11 @@
                   </div>
               </li>
           @endguest
+          
+            <li class="nav-item">
+                  <a class="nav-link" href="/blog">Blogs</a>
+                </li>
+          
         </ul>
     </div>
   </div>

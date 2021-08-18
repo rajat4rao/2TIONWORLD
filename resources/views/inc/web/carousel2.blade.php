@@ -17,7 +17,7 @@
     <div class="carousel-inner" role="listbox">
       <div class="carousel-item active">
         <div class="">
-          <img class="d-block w-100 darkened-image" src="/image/images/bnn4.jpg"
+          <img class="d-block w-100 darkened-image" src="{{ url('/public/image/images/bnn4.jpg') }}"
             alt="First slide">
           <div class="mask rgba-black-light"></div>
         </div>
@@ -30,7 +30,7 @@
       <div class="carousel-item">
         <!--Mask color-->
         <div class="">
-          <img class="d-block w-100 darkened-image" src="/image/images/bnn5.jpg"
+          <img class="d-block w-100 darkened-image" src="{{ url('/public/image/images/bnn5.jpg') }}"
             alt="Second slide">
           <div class="mask rgba-black-strong"></div>
         </div>
@@ -45,7 +45,7 @@
       <div class="carousel-item">
         <!--Mask color-->
         <div class="">
-          <img class="d-block w-100 darkened-image" src="/image/images/bnn3.jpg"
+          <img class="d-block w-100 darkened-image" src="url('/public/image/images/bnn3.jpg') }}"
             alt="Third slide">
           <div class="mask rgba-black-slight"></div>
         </div>

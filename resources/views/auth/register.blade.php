@@ -7,13 +7,13 @@
 
 <!-- Registration Design -->
 <!-- Page content -->
-    <div class="page-content">
+    <div class="page-content" style="background: #f5f5f5;">
 
         <!-- Main content -->
         <div class="content-wrapper">
 
             <!-- Content area -->
-            <div class="content d-flex justify-content-center align-items-center">
+            <div class="content d-flex justify-content-center align-items-center" style="padding: 50px 0px;">
 
                 <!-- Registration form -->
                 <form method="POST" class="flex-fill" action="{{ action('Auth\RegisterController@storeRegistrationForm') }}">
@@ -23,7 +23,7 @@
                             <div class="card mb-0">
                                 <div class="card-body">
                                     <div class="text-center mb-3">
-                                        <i class="icon-plus3 icon-2x text-success border-success border-3 rounded-round p-3 mb-3 mt-1"></i>
+                                        <i class="fa fa-user-plus" style="border: 2px solid #90a4ae;border-radius: 50px;padding: 12px;font-size: 30px;color: #90a4ae;margin-bottom: 10px;"></i>
                                         <h5 class="mb-0">Create account</h5>
                                         <span class="d-block text-muted">All fields are required</span>
                                     </div>
@@ -178,7 +178,8 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn bg-teal-400 btn-labeled btn-labeled-right"><b><i class="icon-plus3"></i></b> Create account</button>
+                                    <button type="submit" class="btn bg-teal-400 btn-labeled btn-labeled-right" style="background: #1264AF;color: #fff;width: 100%;">
+                                        <b><i class="icon-plus3"></i></b> Create account</button>
                                 </form>
                                 </div>
                             </div>
